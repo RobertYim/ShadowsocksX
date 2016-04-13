@@ -36,7 +36,8 @@
     NSString *configPath;
     NSString *PACPath;
     NSString *userRulePath;
-    AFHTTPRequestOperationManager *manager;
+    // AFHTTPRequestOperationManager *manager;
+    AFHTTPSessionManager *manager;
 }
 
 static SWBAppDelegate *appDelegate;
@@ -59,7 +60,7 @@ static SWBAppDelegate *appDelegate;
 
     [webServer startWithPort:8090 bonjourName:@"webserver"];
 
-    manager = [AFHTTPRequestOperationManager manager];
+    manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 
     self.item = [[NSStatusBar systemStatusBar] statusItemWithLength:20];
@@ -460,7 +461,7 @@ void onPACChange(
 }
 
 - (void)updatePACFromGFWList {
-    [manager GET:@"https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" parameters:nil success:^(NSURLSessionTask *task, id responseObject) {
         // Objective-C is bullshit
         NSData *data = responseObject;
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -500,7 +501,7 @@ void onPACChange(
         NSAlert *alert = [[NSAlert alloc] init];
         alert.messageText = @"Updated";
         [alert runModal];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         NSAlert *alert = [NSAlert alertWithError:error];
         [alert runModal];
