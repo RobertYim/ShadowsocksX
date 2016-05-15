@@ -157,12 +157,12 @@ static SWBAppDelegate *appDelegate;
     Configuration *configuration = [ProfileManager configuration];
     [serversMenu removeAllItems];
     int i = 0;
-    NSMenuItem *publicItem = [[NSMenuItem alloc] initWithTitle:_L(Public Server) action:@selector(chooseServer:) keyEquivalent:@""];
-    publicItem.tag = -1;
-    if (-1 == configuration.current) {
-        [publicItem setState:1];
-    }
-    [serversMenu addItem:publicItem];
+//    NSMenuItem *publicItem = [[NSMenuItem alloc] initWithTitle:_L(Public Server) action:@selector(chooseServer:) keyEquivalent:@""];
+//    publicItem.tag = -1;
+//    if (-1 == configuration.current) {
+//        [publicItem setState:1];
+//    }
+//    [serversMenu addItem:publicItem];
     for (Profile *profile in configuration.profiles) {
         NSString *title;
         if (profile.remarks.length) {
@@ -460,7 +460,7 @@ void onPACChange(
 }
 
 - (void)updatePACFromGFWList {
-    [manager GET:@"https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // Objective-C is bullshit
         NSData *data = responseObject;
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];

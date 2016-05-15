@@ -25,3 +25,8 @@ Please visit [issue tracker](https://github.com/shadowsocks/shadowsocks-iOS/issu
 Mailing list: http://groups.google.com/group/shadowsocks
 
 Also see [troubleshooting](https://github.com/clowwindy/shadowsocks/wiki/Troubleshooting)
+
+Dependencies
+-----
+
+[libsodium](https://github.com/jedisct1/libsodium)
