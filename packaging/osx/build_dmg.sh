@@ -7,5 +7,5 @@ then
 fi
 
 dmgbuild -s settings.py 'Shadowsocks' ShadowsocksX-$1.dmg
-rsync --progress -e ssh ShadowsocksX-$1.dmg frs.sourceforge.net:/home/frs/project/shadowsocksgui/dist/
+# rsync --progress -e ssh ShadowsocksX-$1.dmg frs.sourceforge.net:/home/frs/project/shadowsocksgui/dist/
 
