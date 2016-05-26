@@ -6,10 +6,9 @@ Shadowsocks GUI for OSX
 How to Build
 -----
 
-- Install dependencies:
-``` brew install libsodium```
-- Update git modules
-- Open Xcode and build
+- Install Pods;
+- Update git modules;
+- Open Xcode and build.
 
 ToDo
 ----

@@ -297,9 +297,9 @@ void onPACChange(
 }
 
 // TODO
-- (void)scanQRCode {
-  
-}
+//- (void)scanQRCode {
+//
+//}
 
 - (void)showLogs {
     [[NSWorkspace sharedWorkspace] launchApplication:@"/Applications/Utilities/Console.app"];
