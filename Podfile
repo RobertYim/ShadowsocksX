@@ -14,6 +14,7 @@ end
 target 'ShadowsocksX' do
     platform :osx, '10.9'
     pod "libsodium"
+    pod 'ZXingObjC', '~> 3.1.0'
 end
 
 target 'shadowsocks_sysconf' do
