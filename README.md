@@ -10,12 +10,6 @@ How to Build
 - Update git modules;
 - Open Xcode and build.
 
-ToDo
-----
-
-- Fix Scan QRCode from Screen
-
-
 License
 -------
 The project is released under the terms of [GPLv3](https://raw.github.com/shadowsocks/shadowsocks-iOS/master/LICENSE).
