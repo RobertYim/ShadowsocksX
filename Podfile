@@ -17,7 +17,4 @@ target 'ShadowsocksX' do
     pod 'ZXingObjC', '~> 3.1.0'
 end
 
-target 'shadowsocks_sysconf' do
-
-end
 

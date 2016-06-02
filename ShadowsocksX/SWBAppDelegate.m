@@ -11,11 +11,11 @@
 #import "SWBQRCodeWindowController.h"
 #import "SWBAppDelegate.h"
 #import "GCDWebServer.h"
+#import "GCDWebServerDataResponse.h"
 #import "ShadowsocksRunner.h"
 #import "ProfileManager.h"
 #import "AFNetworking.h"
 #import <ZXingObjC/ZXingObjC.h>
-#import "NSData+Base64.h"
 
 
 #define kShadowsocksIsRunningKey @"ShadowsocksIsRunning"
@@ -39,7 +39,6 @@
     NSString *configPath;
     NSString *PACPath;
     NSString *userRulePath;
-    // AFHTTPRequestOperationManager *manager;
     AFHTTPSessionManager *manager;
 }
 
@@ -580,12 +579,13 @@ void onPACChange(
     }
 }
 
+
 - (void)updatePACFromGFWList {
-    [manager GET:@"https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" parameters:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [manager GET:@"https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         // Objective-C is bullshit
         NSData *data = responseObject;
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSData *data2 = [[NSData alloc] initWithBase64Encoding:str];
+        NSData *data2 = [[NSData alloc] initWithBase64EncodedString:str options:0];
         if (!data2) {
             NSLog(@"can't decode base64 string");
             return;

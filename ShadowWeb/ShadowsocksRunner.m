@@ -57,7 +57,7 @@
     NSString *errorReason = nil;
     while(i < 2) {
         if (i == 1) {
-            NSData *data = [[NSData alloc] initWithBase64Encoding:url.host];
+            NSData *data = [[NSData alloc] initWithBase64EncodedString:url.host options:0];
             NSString *decodedString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             urlString = decodedString;
         }
@@ -99,6 +99,7 @@
     return NO;
 }
 
+
 +(NSURL *)generateSSURL {
     if ([ShadowsocksRunner isUsingPublicServer]) {
         return nil;
@@ -109,7 +110,7 @@
                        [ShadowsocksRunner configForKey:kShadowsocksIPKey],
                        [ShadowsocksRunner configForKey:kShadowsocksPortKey]];
     
-    NSString *base64String = [[parts dataUsingEncoding:NSUTF8StringEncoding] base64Encoding];
+    NSString *base64String = [[parts dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
     NSString *urlString = [NSString stringWithFormat:@"ss://%@", base64String];
     return [NSURL URLWithString:urlString];
 }
