@@ -400,7 +400,7 @@ void onPACChange(
         } else {
             
             NSAlert *alert = [[NSAlert alloc] init];
-            alert.messageText = @"No ss QR code!";
+            alert.messageText = NSLocalizedString(@"Invalid QR Code", nil);
             [alert runModal];
             
         }
@@ -409,7 +409,7 @@ void onPACChange(
         // Use error to determine why we didn't get a result, such as a barcode
         // not being found, an invalid checksum, or a format inconsistency.
         NSAlert *alert = [[NSAlert alloc] init];
-        alert.messageText = @"No QR code!";
+        alert.messageText = NSLocalizedString(@"No QR Code Found", nil);
         [alert runModal];
     }
 }
