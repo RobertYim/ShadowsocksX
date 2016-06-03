@@ -60,3 +60,5 @@
 "Generate QR Code..." = "生成二维码";
 "Scan QR Code from Screen..." = "扫描二维码";
 "Update PAC from GFWList" = "从 GFWList 更新 PAC";
+"Invalid QR Code" = "无效的二维码";
+"No QR Code Found" = "没有找到二维码";
