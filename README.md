@@ -17,7 +17,7 @@ The project is released under the terms of [GPLv3](https://raw.github.com/shadow
 Bugs and Issues
 ----------------
 
-Please visit [issue tracker](https://github.com/shadowsocks/shadowsocks-iOS/issues?state=open)
+Please visit [issue tracker](https://github.com/RobertYan/ShadowsocksX/issues?state=open)
 
 Mailing list: http://groups.google.com/group/shadowsocks
 
